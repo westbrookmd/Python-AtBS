@@ -1,1 +1,0 @@
-these files will not operate correctly in this folder since my credentials are stored elsewhere

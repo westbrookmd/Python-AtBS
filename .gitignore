@@ -112,3 +112,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+Python-Files/Chapter14/Survey.xlsx
+Python-Files/Chapter14/credentialsSheets.json
+Python-Files/Chapter14/credentials-Sheets.json
+Python-Files/Chapter14/token.json
+Python-Files/Chapter14/token-drive.pickle
+Python-Files/Chapter14/token-sheets.pickle
