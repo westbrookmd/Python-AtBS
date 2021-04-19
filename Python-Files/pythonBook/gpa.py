@@ -27,12 +27,13 @@ def makeStudent(infoStr):
 
 def main():
     #filename = input("Enter the name of the grade file: ")
+    #infile = open(filesname, 'r')
     infile = open("studentsGrades.txt", 'r')
+    #File cannot have additional lines at the end in the current state of this program
 
     best = makeStudent(infile.readline())
 
     for line in infile:
-        logging.debug(line)
         s = makeStudent(line)
         if s.gpa() > best.gpa():
             best = s
