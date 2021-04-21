@@ -11,21 +11,29 @@ access_token = token
 headers = {'Authorization':"Token "+access_token}
 gh_session = requests.Session()
 gh_session.auth = (username, token)
-issues=[]
+issues = {}
 for page_num in range(1,2):
-    try:
-        issues_url = f'https://api.github.com/repos/SimCMinMax/WoW-BugTracker/issues?page={page_num}'
-        print(issues_url)
-        issues = json.loads(gh_session.get(issues_url).text)
-        issues.append(issue)
-    except:
-        issues.append(None)
+    issues_url = f'https://api.github.com/repos/SimCMinMax/WoW-BugTracker/issues?page={page_num}'
+    print(issues_url)
+    #response = gh_session.get(issues_url.text())
+    #issues = json.loads(response)
 
-wow_issues = open("wow_issues.txt", "w")
+    issues = json.loads(gh_session.get(issues_url).text)
+    #issues = gh_session.get(issues_url)
+
+    print("Success")
+    #except:
+        #print("None")
+
+wow_issues = open("wow_issues.json", "w")
 json.dump(issues, wow_issues)
 
+"""
 for issue in range(len(issues)):
-    print ("Issue " + str(issue) + " Title: " + str(issues[issue]['title']))
+    try:
+        print ("Issue " + str(issue) + " Title: " + str(issues[issue]['title']))
+    except:
+        print("None")
 
 print(len(issues))
 
@@ -52,3 +60,4 @@ for page in issues:
 print(len(issues))
 print(issues)
 print(issues[0])
+"""
