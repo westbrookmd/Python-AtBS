@@ -11,14 +11,14 @@ access_token = token
 headers = {'Authorization':"Token "+access_token}
 gh_session = requests.Session()
 gh_session.auth = (username, token)
-issues = {}
-for page_num in range(1,2):
-    issues_url = f'https://api.github.com/repos/SimCMinMax/WoW-BugTracker/issues?page={page_num}'
+issues= []
+for page_num in range(1,9):
+    issues_url = f'https://api.github.com/repos/SimCMinMax/WoW-BugTracker/issues?per_page=100&?page={page_num}'
     print(issues_url)
     #response = gh_session.get(issues_url.text())
     #issues = json.loads(response)
 
-    issues = json.loads(gh_session.get(issues_url).text)
+    issues += json.loads(gh_session.get(issues_url).text)
     #issues = gh_session.get(issues_url)
 
     print("Success")
