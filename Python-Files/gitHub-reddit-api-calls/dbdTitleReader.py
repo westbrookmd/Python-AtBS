@@ -2,33 +2,16 @@ import json, openpyxl
 
 with open('dbdTitlesRaw.json') as json_file:
     dbdTitles = json.load(json_file)
-#wowfile = open('wow_issues.json')
-#wowData = wowfile.read()
-#print(wowData)
-#for issue in range(len(wowData)-1):
-#    print ("Issue " + str(issue) + " Title: " + str(wowData[issue]))
-print(type(dbdTitles))
-#for issue in range(len(wowData)):
-#    print ("Issue " + str(issue) + " Title: " + str(wowData[issue]['title']))
-
-
 
 titles = []
-dbdTitlesUnclassified = 0
-#print(dbdTitles['data']['children'][0]['data']['title'])
 
 for i in range(len(dbdTitles['data']['children'])):
-    #try:
     titles.append(dbdTitles['data']['children'][i]['data']['title'])
-    #except:
-    #dbdTitlesUnclassified += 1
 
 print(titles)
-#dbdTitlesFile = open("dbdTitles.json", "w")
-#json.dump(titles, dbdTitlesFile)
+
 
 Trapper = sum('Trapper' in s for s in titles)
-
 Wraith = sum('Wraith' in s for s in titles)
 Hillbilly = sum('Billy' in s for s in titles)
 Nurse = sum('Nurse' in s for s in titles)
@@ -53,7 +36,7 @@ Twins = sum('Twins' in s for s in titles)
 Trickster = sum('Trickster' in s for s in titles)
 
 endSentence = " times in the top " + str(len(titles)) + " titles of /r/deadbydaylight of all time!"
-endSentence = " "
+#endSentence = " " #makes it easier to read for debugging
 print("Myers is listed " + str(Myers) + endSentence)
 print("Wraith is listed " + str(Wraith) + endSentence)
 print("Hillbilly is listed " + str(Hillbilly) + endSentence)
